@@ -1,0 +1,10 @@
+Import-Module .\Functions\Get-VMSizeCached.ps1 -Force
+Import-Module .\Functions\New-Directory.ps1 -Force
+Import-Module .\Functions\Get-List.ps1 -Force
+Import-Module .\Functions\Get-VMFromHyperV.ps1 -Force
+Import-Module .\Functions\Write-Log.ps1 -Force
+Import-Module .\Functions\Shared\Common.ps1 -Force
+Import-Module .\Functions\Test-CacheValid.ps1 -Force
+Import-Module .\Functions\Get-VMNetworkCached.ps1 -Force
+Import-Module .\Functions\Update-VMFromHyperV.ps1 -Force
+Import-Module .\Functions\Get-VMachine.ps1 -Force
