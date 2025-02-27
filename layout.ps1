@@ -2,10 +2,6 @@ Import-Module .\Functions\Get-AllModules.ps1 -Force
 
 $vms = Get-List -Type VM
 if ($vms) {
-
-    # $headerStyle = $PSStyle.Foreground.FromRgb(255, 255, 255) +  # White text
-    $PSStyle.Foreground.FromRgb(255, 255, 255) +  # White text
-    $PSStyle.Background.FromRgb(64, 116, 155)        # Dark blue background
     
     # Define colors for state and role
     $stateColor = @{ "Running" = "Green"; "Off" = "Red" }
@@ -22,6 +18,7 @@ if ($vms) {
                 $value = $_.($properties[$i])
                 if ($i -in 6, 7) { "$value GB" } else { "$value" } 
             } | Measure-Object -Property Length -Maximum).Maximum
+        
         [Math]::Max($headerLength, $maxDataLength) + 2  # Add padding
     }
 
@@ -34,7 +31,7 @@ if ($vms) {
 
         # Print header for the domain
         for ($i = 0; $i -lt $headers.Length; $i++) {
-            $width = $columnWidths[$i]
+            $width = $columnWidths[$i]  # $columnWidths is an array of columns' width
             Write-Host ("{0,-$width}" -f $headers[$i]) -NoNewline -ForegroundColor White -BackgroundColor DarkBlue
         }
         Write-Host ""
